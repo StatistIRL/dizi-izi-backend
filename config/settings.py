@@ -1,5 +1,4 @@
 import os
-from datetime import timedelta
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -32,9 +31,11 @@ INSTALLED_APPS = [
     'api',
     'info',
     'drf_spectacular',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -195,3 +196,8 @@ MAX_LENGTH_PROJECT_NAME = 128
 MAX_LENGTH_ROOM_NAME = 128
 MAX_LENGTH_FURNITURE_NAME = 128
 PROJECT_NAME_BY_DEFAULT = 'Проект'
+
+if DEBUG:
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]

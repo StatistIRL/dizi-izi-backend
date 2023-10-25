@@ -130,7 +130,8 @@ class CustomUserCreateSerializer(UserCreateSerializer):
 
 
 class CustomUserCreatePasswordRetypeSerializer(
-    UserCreatePasswordRetypeSerializer):
+    UserCreatePasswordRetypeSerializer
+):
     def create(self, validated_data):
         try:
             user = self.perform_create(validated_data)
